@@ -499,7 +499,8 @@
                     </button>
                     {open && (
                     <div className="space-y-6 animate-fade-in">
-                        <div className={`bg-white rounded-2xl shadow-sm border border-slate-100 border-l-4 p-6 md:p-8 ${secure ? 'border-l-blue-500' : 'border-l-purple-500'}`}>
+                        {secure && (
+                        <div className="bg-white rounded-2xl shadow-sm border border-slate-100 border-l-4 p-6 md:p-8 border-l-blue-500">
                             <h2 className="text-xl font-bold text-slate-800 mb-4">{secure ? '為什麼要用資安版？' : '為什麼要把互評系統部署在自己的 Google 生態圈？'}</h2>
                             {secure ? (<>
                                 <p className="text-slate-600 leading-relaxed">一般版把試算表 ID 直接寫在程式碼裡，程式碼一分享出去，ID 也跟著外流。資安版改把 <strong className="text-blue-700">SHEET_ID 與 FOLDER_ID 存在 Apps Script 的「指令碼屬性」</strong>，程式碼裡沒有任何 ID，可以放心分享給同事或放上公開網頁。</p>
@@ -509,6 +510,7 @@
                                 <p className="text-slate-600 leading-relaxed mt-3">這樣的架構優勢在於：<strong className="text-purple-700">不需要第三方平台帳號或付費方案，學生資料只存在您自己的 Google Drive。</strong>一般版把試算表 ID 直接寫在程式碼第 22 行，設定最快；若程式碼要分享給同事，建議改用「資安版雲端部署」。</p>
                             </>)}
                         </div>
+                        )}
 
                         <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                         <div className={`text-white px-6 py-4 ${secure ? 'bg-blue-600' : 'bg-purple-600'}`}>
@@ -1548,6 +1550,11 @@
                     {/* ======================================================================= */}
                     {activeTab === 'peer-review' && (
                     <div className="space-y-8">
+                    <div className="animate-fade-in bg-white rounded-2xl shadow-sm border border-slate-100 border-l-4 border-l-purple-500 p-6 md:p-8">
+                        <h2 className="text-xl font-bold text-slate-800 mb-4">為什麼要把互評系統部署在自己的 Google 生態圈？</h2>
+                        <p className="text-slate-600 leading-relaxed">同儕互評網頁部署到 Google Apps Script (GAS) 之後，學生用手機或平板打開網址就能評分，分數即時寫進您的 Google 試算表，畫面上同步顯示各組平均與匿名動態。老師不用再收紙本、手動登打。</p>
+                        <p className="text-slate-600 leading-relaxed mt-3">這樣的架構優勢在於：<strong className="text-purple-700">不需要第三方平台帳號或付費方案，學生資料只存在您自己的 Google Drive。</strong>一般版把試算表 ID 直接寫在程式碼第 22 行，設定最快；若程式碼要分享給同事，建議改用「資安版雲端部署」。</p>
+                    </div>
                     <div className="animate-fade-in bg-white flex flex-col rounded-2xl shadow-lg border border-slate-200 overflow-hidden" style={{ height: '800px' }}>
                         <div className="flex flex-col md:flex-row flex-1 overflow-hidden">
                         {/* Left Panel */}
